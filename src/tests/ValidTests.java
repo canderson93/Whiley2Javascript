@@ -10,4 +10,9 @@ public class ValidTests {
 	public void ValidAssert(){
 		TestUtils.runTest("ValidAssert");
 	}
+	
+	@Test
+	public void ValidAssert_Conditionals(){
+		TestUtils.runTest("ValidAssert_Conditionals");
+	}
 }

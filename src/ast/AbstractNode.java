@@ -25,14 +25,7 @@ public abstract class AbstractNode {
 	 * @return
 	 */
 	public abstract String evaluate();
-	
-	/**
-	 * Returns a flattened version of this child, and it's subnodes
-	 */
-	protected AbstractNode flatten(){
-		return this;
-	};
-	
+
 	/**
 	 * Adds a label to the current scope
 	 * 
@@ -78,15 +71,21 @@ public abstract class AbstractNode {
 		else if (code instanceof Codes.Fail){
 			list.add(new FunctionCallNode(parent, "fail", null));
 		}
+		else if (code instanceof Codes.Goto){
+			Codes.Goto c = (Codes.Goto)code;
+			list.add(new GoToNode(parent, c));
+		}
 		//Label
 		else if (code instanceof Codes.Label){
 			Codes.Label c = (Codes.Label)code;
 			list.add(new LabelNode(parent, c.label));
 		}
+		//If
 		else if (code instanceof Codes.If){
 			Codes.If c = (Codes.If)code;
 			list.add(new IfNode(parent, c));
 		}
+		//Return
 		else if (code instanceof Codes.Return){
 			Codes.Return c = (Codes.Return)code;
 			list.add(new ReturnNode(parent, c));

@@ -1,2 +1,2 @@
 public export method test():
-	assert true
+	assert 1 == 1
