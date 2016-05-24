@@ -1,7 +1,5 @@
 package ast;
 
-import jasm.lang.JvmType.Array;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import wyil.lang.Code;
+import wyil.lang.Codes;
 import wyil.lang.WyilFile.FunctionOrMethod;
 
 /**
@@ -56,8 +55,6 @@ public class FunctionNode extends AbstractNode {
 		for (Code code : function.body().bytecodes()){
 			children.addAll(createNodeFromCode(code, this));
 		}
-		
-		System.out.println(children.toString());
 	}
 
 	@Override

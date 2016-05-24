@@ -2,7 +2,6 @@ package tests;
 
 import static org.junit.Assert.fail;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.script.Invocable;
@@ -34,27 +33,8 @@ public final class TestUtils {
 	 * @param name
 	 * @throws IOException
 	 */
-	public static void runTest(String name) {
-		String wyFile = WHILEY_TEST_DIR + name + WHILEY_EXT;
-		String wyilFile = TEST_WYIL_DIR + name + WYIL_EXT;
-		
-		//Compile the file
-		String[] args = {
-				"-wd", WHILEY_TEST_DIR, //Whiley src location 
-				"-wyildir", TEST_WYIL_DIR, //Wyil compilation dir
-				//"-wp", "lib/wyrt-v0.3.39.jar",
-				wyFile};
-		int r = new WyjcMain(new WyjcBuildTask(), WyjcMain.DEFAULT_OPTIONS).run(args);
-		
-		//Check compilation results
-		if (r != WycMain.SUCCESS){
-			fail("Test failed to compile");
-		}
-		
-		//Generate JS
-		String js = Whiley2Javascript.convert(wyilFile);
-		
-		System.out.println(js);
+	public static void runValidTest(String name) {
+		String js = generateJavascript(name);
 		
 		//Execute JS
 		try {
@@ -80,5 +60,29 @@ public final class TestUtils {
 		
 		Object result = engine.invokeFunction(function, params);
 		return result;
+	}
+	
+	private static String generateJavascript(String name){
+		String wyFile = WHILEY_TEST_DIR + name + WHILEY_EXT;
+		String wyilFile = TEST_WYIL_DIR + name + WYIL_EXT;
+		
+		//Compile the file
+		String[] args = {
+				"-wd", WHILEY_TEST_DIR, //Whiley src location 
+				"-wyildir", TEST_WYIL_DIR, //Wyil compilation dir
+				//"-wp", "lib/wyrt-v0.3.39.jar",
+				wyFile};
+		int r = new WyjcMain(new WyjcBuildTask(), WyjcMain.DEFAULT_OPTIONS).run(args);
+		
+		//Check compilation results
+		if (r != WycMain.SUCCESS){
+			fail("Test failed to compile");
+		}
+		
+		//Generate JS
+		String js = Whiley2Javascript.convert(wyilFile);
+		System.out.println(js);
+		
+		return js;
 	}
 }

@@ -3,6 +3,8 @@ package ast;
 import java.util.LinkedList;
 import java.util.List;
 
+import wyil.lang.Codes;
+
 /**
  * A node for making calls to other functions in the program
  * 
@@ -29,6 +31,13 @@ public class FunctionCallNode extends AbstractNode {
 		if (params == null){
 			this.params = new LinkedList<String>();
 		}
+	}
+	
+	protected FunctionCallNode(AbstractNode parent, Codes.Invoke code){
+		super(parent);
+		
+		this.function = code.name.name();
+		this.params = new LinkedList<String>(); //TODO: Work out how to parameter
 	}
 
 	@Override

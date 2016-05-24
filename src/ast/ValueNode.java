@@ -12,13 +12,20 @@ public class ValueNode extends AbstractNode {
 	private String target;
 	private String value;
 
-	public ValueNode(AbstractNode parent, Code code){
+	public ValueNode(AbstractNode parent, Codes.Const code){
 		super(parent);
 
-		//TODO: Check this isn't done any other way
-		Codes.Const val = (Codes.Const)code;
-		this.target = "$"+val.target();
-		this.value = val.constant.toString();
+		this.target = "$"+code.target();
+		this.value = code.constant.toString();
+		
+		parent.addVariable(this.target);
+	}
+	
+	public ValueNode(AbstractNode parent, Codes.Assign code){
+		super(parent);
+		
+		this.target = "$"+code.target(0);
+		this.value = "$"+code.operands()[0];
 		
 		parent.addVariable(this.target);
 	}

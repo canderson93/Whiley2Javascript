@@ -64,8 +64,24 @@ public abstract class AbstractNode {
 			list.addAll(createAssertBlock(c, parent));
 		}
 		//Constants
-		else if (code instanceof Codes.Const){ 
-			list.add(new ValueNode(parent, code));
+		else if (code instanceof Codes.Const){
+			Codes.Const c = (Codes.Const)code;
+			list.add(new ValueNode(parent, c));
+		}
+		//Assignments
+		else if (code instanceof Codes.Assign){
+			Codes.Assign c = (Codes.Assign)code;
+			list.add(new ValueNode(parent, c));
+		}
+		//Operator Assignments
+		else if (code instanceof Codes.BinaryOperator){
+			Codes.BinaryOperator c = (Codes.BinaryOperator)code;
+			list.add(new OperatorNode(parent, c));
+		}
+		//Function call
+		else if (code instanceof Codes.Invoke){
+			Codes.Invoke c = (Codes.Invoke)code;
+			list.add(new FunctionCallNode(parent, c));
 		}
 		//Fail
 		else if (code instanceof Codes.Fail){
