@@ -49,7 +49,7 @@ public class FunctionCallNode extends AbstractNode {
 
 		//Input any target
 		if (code.targets().length > 0){
-			target = "$"+code.target(0);
+			target = VAR_PREFIX+code.target(0);
 			parent.addVariable(target);
 		} else {
 			target = null;
