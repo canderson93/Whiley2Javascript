@@ -3,7 +3,6 @@ package ast;
 import java.util.ArrayList;
 import java.util.List;
 
-import wyil.lang.Code;
 import wyil.lang.Codes;
 
 /**

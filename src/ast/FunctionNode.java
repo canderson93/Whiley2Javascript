@@ -1,16 +1,13 @@
 package ast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import wyil.lang.Code;
-import wyil.lang.Codes;
 import wyil.lang.WyilFile.FunctionOrMethod;
 import wyil.lang.Type;
 
