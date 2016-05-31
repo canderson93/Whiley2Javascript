@@ -17,7 +17,7 @@ public class LabelNode extends AbstractNode {
 
 	@Override
 	//End the current parsing line
-	public String evaluate() {
+	public String translate() {
 		String val = String.format("case '%s':\n", label);
 		//TODO: May need to place a break statement in here
 		return val;

@@ -24,7 +24,7 @@ public abstract class AbstractNode {
 	 * Produce a javascript representation of this node
 	 * @return
 	 */
-	public abstract String evaluate();
+	public abstract String translate();
 
 	/**
 	 * Adds a label to the current scope

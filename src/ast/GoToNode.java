@@ -17,7 +17,7 @@ public class GoToNode extends AbstractNode {
 	}
 
 	@Override
-	public String evaluate() {
+	public String translate() {
 		String val = String.format("%s = '%s';\nbreak;\n", LABEL_VAR, target);
 		return val;
 	}

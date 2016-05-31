@@ -9,7 +9,7 @@ public class Whiley2Javascript {
 		TreeBuilder builder = new TreeBuilder(filename);
 		AbstractNode tree = builder.build();
 		
-		return tree.evaluate();
+		return tree.translate();
 	}
 	
 	public static void main(String args[]){

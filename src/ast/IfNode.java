@@ -19,7 +19,7 @@ public class IfNode extends AbstractNode {
 	}
 
 	@Override
-	public String evaluate() {
+	public String translate() {
 		String val = String.format("if (%s){\n", condition);
 		val += String.format("%s = '%s';\n", LABEL_VAR, target);
 		val += "continue; \n }\n"; //TODO: Break or continue here?

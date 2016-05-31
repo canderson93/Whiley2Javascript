@@ -37,7 +37,7 @@ public class ValueNode extends AbstractNode {
 	}
 
 	@Override
-	public String evaluate() {
+	public String translate() {
 		String val = String.format("%s = %s;\n", target, value);
 		
 		return val;

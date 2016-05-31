@@ -30,12 +30,12 @@ public class ProgramNode extends AbstractNode {
 	}
 
 	@Override
-	public String evaluate() {
+	public String translate() {
 		//First off, add in a fail function for assertions
 		String val = "function fail() {\n throw new Error('Assertion failed'); } \n\n";
 
 		for (AbstractNode node : children) {
-			val += node.evaluate();
+			val += node.translate();
 			val += "\n"; // for good measure
 		}
 

@@ -7,13 +7,22 @@ public class ReturnNode extends AbstractNode {
 
 	public ReturnNode(AbstractNode parent, Codes.Return code) {
 		super(parent);
-		
-		//value = "$"+code.target(0);
+
+		//Put in the return value, if it exists
+		if (code.operands().length > 0){
+			value = "$"+code.operand(0);
+		} else {
+			value = null;
+		}
 	}
 
 	@Override
-	public String evaluate() {
-		return "return;\n";
+	public String translate() {
+		if (value == null){
+			return "return;\n";
+		}
+
+		return String.format("return %s;\n",value);
 	}
 
 }

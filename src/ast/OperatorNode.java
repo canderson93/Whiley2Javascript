@@ -19,7 +19,7 @@ public class OperatorNode extends AbstractNode {
 	}
 
 	@Override
-	public String evaluate() {
+	public String translate() {
 		String val = String.format("%s = %s %s %s;\n", target, operands[0], operator, operands[1]);
 		return val;
 	}
