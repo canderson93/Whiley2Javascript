@@ -89,7 +89,7 @@ public abstract class AbstractNode {
 		//Update Assignment
 		else if (code instanceof Codes.Update){
 			Codes.Update c = (Codes.Update) code;
-			list.add(new ValueNode(parent, c));
+			list.add(new UpdateNode(parent, c));
 		}
 		//Array Assignment
 		else if (code instanceof Codes.NewArray){
@@ -110,6 +110,11 @@ public abstract class AbstractNode {
 		else if (code instanceof Codes.BinaryOperator) {
 			Codes.BinaryOperator c = (Codes.BinaryOperator) code;
 			list.add(new OperatorNode(parent, c));
+		}
+		// Negation Assignments
+		else if (code instanceof Codes.UnaryOperator){
+			Codes.UnaryOperator c = (Codes.UnaryOperator) code;
+			list.add(new ValueNode(parent, c));
 		}
 		//LengthOf Assignment
 		else if (code instanceof Codes.LengthOf){
@@ -142,6 +147,10 @@ public abstract class AbstractNode {
 		else if (code instanceof Codes.Loop){
 			Codes.Loop c = (Codes.Loop)code;
 			list.add(new LoopNode(parent, c));
+		}
+		else if (code instanceof Codes.Switch){
+			Codes.Switch c = (Codes.Switch)code;
+			list.add(new SwitchNode(parent, c));
 		}
 		// Return
 		else if (code instanceof Codes.Return) {

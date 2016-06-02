@@ -28,7 +28,9 @@ public class IfNode extends AbstractNode {
 	}
 
 	private static String generateCondition(Codes.If code){
-		String condition = "$"+code.operand(0); //Left hand
+		//String conversion to subvert pointer comparisons for arrays etc.
+		//It doesn't have a huge impact otherwise, due to implicit conversion in JavaScript
+		String condition = "$"+code.operand(0)+".toString()"; //Left hand
 
 		//Insert the comparator
 		switch (code.op){
@@ -52,7 +54,7 @@ public class IfNode extends AbstractNode {
 			break;
 		}
 
-		condition += "$"+code.operand(1); //Right hand
+		condition += "$"+code.operand(1)+".toString()"; //Right hand
 
 		return condition;
 	}

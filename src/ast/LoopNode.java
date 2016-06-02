@@ -12,12 +12,14 @@ public class LoopNode extends AbstractNode {
 
 	protected LoopNode(AbstractNode parent, Codes.Loop code) {
 		super(parent);
-
+		
 		children = new ArrayList<AbstractNode>();
 
 		for (Code c : code.bytecodes()){
 			children.addAll(createNodeFromCode(c, this));
 		}
+		
+		throw new RuntimeException("Loops are temporarily disabled");
 	}
 
 	protected LoopNode(AbstractNode parent, FunctionOrMethod function){

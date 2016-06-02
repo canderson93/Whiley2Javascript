@@ -72,7 +72,7 @@ public class FunctionNode extends AbstractNode {
 		}
 
 		//Open body
-		val += ") { \n ";
+		val += ") { \n";
 
 		//Variable declarations
 		for (String s : variables){

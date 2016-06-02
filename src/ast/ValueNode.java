@@ -37,17 +37,6 @@ public class ValueNode extends AbstractNode {
 		parent.addVariable(this.target);
 	}
 
-	public ValueNode(AbstractNode parent, Codes.Update code){
-		super(parent);
-
-		this.value = new ArrayList<String>();
-
-		this.target = VAR_PREFIX+code.target(0);
-		this.value.add(VAR_PREFIX+code.operand(0));
-
-		//This is updating an existing value, so we don't register the target with the parent
-	}
-
 	public ValueNode(AbstractNode parent, Codes.NewArray code) {
 		super(parent);
 
@@ -68,6 +57,18 @@ public class ValueNode extends AbstractNode {
 		this.value = new ArrayList<String>(); //Empty values array
 		this.target = VAR_PREFIX+code.target(0);
 
+		parent.addVariable(this.target);
+	}
+	
+	public ValueNode(AbstractNode parent, Codes.UnaryOperator code){
+		super(parent);
+		
+		this.value = new ArrayList<String>();
+		this.target = VAR_PREFIX+code.target(0);
+
+		//Assuming that all UnaryOperators are negations
+		value.add("-"+VAR_PREFIX+code.operand(0));
+		
 		parent.addVariable(this.target);
 	}
 
