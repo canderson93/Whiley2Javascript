@@ -265,11 +265,6 @@ public class ValidTests {
 	}
 
 	@Test
-	public void ListAssign_Valid_10(){
-		TestUtils.runValidTest("ListAssign_Valid_10");
-	}
-
-	@Test
 	public void ListAssign_Valid_11(){
 		TestUtils.runValidTest("ListAssign_Valid_11");
 	}
