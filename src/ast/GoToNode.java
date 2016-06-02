@@ -10,9 +10,15 @@ import wyil.lang.Codes;
 public class GoToNode extends AbstractNode {
 	String target;
 
+	public GoToNode(AbstractNode parent, String target){
+		super(parent);
+
+		this.target = target;
+	}
+
 	public GoToNode(AbstractNode parent, Codes.Goto code) {
 		super(parent);
-		
+
 		target = code.target;
 	}
 

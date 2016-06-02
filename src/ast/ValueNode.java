@@ -32,9 +32,20 @@ public class ValueNode extends AbstractNode {
 
 		//As far as I'm aware, these only ever have one value
 		this.target = VAR_PREFIX+code.target(0);
-		this.value.add(VAR_PREFIX+code.operands()[0]);
+		this.value.add(VAR_PREFIX+code.operand(0));
 
 		parent.addVariable(this.target);
+	}
+
+	public ValueNode(AbstractNode parent, Codes.Update code){
+		super(parent);
+
+		this.value = new ArrayList<String>();
+
+		this.target = VAR_PREFIX+code.target(0);
+		this.value.add(VAR_PREFIX+code.operand(0));
+
+		//This is updating an existing value, so we don't register the target with the parent
 	}
 
 	public ValueNode(AbstractNode parent, Codes.NewArray code) {
@@ -47,6 +58,15 @@ public class ValueNode extends AbstractNode {
 		for (int op : code.operands()){
 			this.value.add(VAR_PREFIX+op);
 		}
+
+		parent.addVariable(this.target);
+	}
+
+	public ValueNode(AbstractNode parent, Codes.ArrayGenerator code){
+		super(parent);
+
+		this.value = new ArrayList<String>(); //Empty values array
+		this.target = VAR_PREFIX+code.target(0);
 
 		parent.addVariable(this.target);
 	}

@@ -80,14 +80,14 @@ public class FunctionNode extends AbstractNode {
 		}
 
 		//Set default label case
-		val += String.format("%s = 'labelx';\n", LABEL_VAR);
+		val += String.format("%s = '%s';\n", LABEL_VAR, DEFAULT_LABEL);
 
 		//Start while loop and switch
 		val += "while (true) { \n";
 		val += String.format("switch(%s){\n", LABEL_VAR);
 
 		//Add default switch case
-		val += "case 'labelx':\n";
+		val += "case '"+DEFAULT_LABEL+"':\n";
 
 		//Populate default case
 		for (AbstractNode n : children){

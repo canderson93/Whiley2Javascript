@@ -9,7 +9,7 @@ import wyil.lang.WyilFile.FunctionOrMethod;
 
 /**
  * A Javascript AST node representing the top level program.
- * 
+ *
  * @author Carl
  *
  */
@@ -31,8 +31,7 @@ public class ProgramNode extends AbstractNode {
 
 	@Override
 	public String translate() {
-		//First off, add in a fail function for assertions
-		String val = "function fail() {\n throw new Error('Assertion failed'); } \n\n";
+		String val = "";
 
 		for (AbstractNode node : children) {
 			val += node.translate();

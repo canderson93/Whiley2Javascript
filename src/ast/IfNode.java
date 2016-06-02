@@ -13,7 +13,7 @@ public class IfNode extends AbstractNode {
 
 	public IfNode(AbstractNode parent, Codes.If code) {
 		super(parent);
-		
+
 		target = code.target;
 		condition = generateCondition(code);
 	}
@@ -22,14 +22,14 @@ public class IfNode extends AbstractNode {
 	public String translate() {
 		String val = String.format("if (%s){\n", condition);
 		val += String.format("%s = '%s';\n", LABEL_VAR, target);
-		val += "continue; \n }\n"; //TODO: Break or continue here?
+		val += "break; \n }\n";
 
 		return val;
 	}
-	
+
 	private static String generateCondition(Codes.If code){
 		String condition = "$"+code.operand(0); //Left hand
-		
+
 		//Insert the comparator
 		switch (code.op){
 		case EQ:
@@ -51,9 +51,9 @@ public class IfNode extends AbstractNode {
 			condition += " != ";
 			break;
 		}
-		
+
 		condition += "$"+code.operand(1); //Right hand
-		
+
 		return condition;
 	}
 
