@@ -37,6 +37,8 @@ public class FunctionNode extends AbstractNode {
 
 	private String name;
 	private List<String> params;
+	
+	private int loopCounter; //Counter for loop labels
 
 	protected FunctionNode(AbstractNode parent, FunctionOrMethod function) {
 		super(parent);
@@ -44,6 +46,8 @@ public class FunctionNode extends AbstractNode {
 		labels = new HashMap<String, LabelNode>();
 		children = new ArrayList<AbstractNode>();
 		variables = new HashSet<String>();
+		
+		loopCounter = 0;
 
 		params = loadParams(function.type());
 
@@ -107,6 +111,13 @@ public class FunctionNode extends AbstractNode {
 	@Override
 	protected void addVariable(String var){
 		variables.add(var);
+	}
+	
+	protected String getLoopLabel(){
+		String val = "loop"+loopCounter;
+		loopCounter++;
+		
+		return val;
 	}
 
 	private List<String> loadParams(Type.FunctionOrMethod function){

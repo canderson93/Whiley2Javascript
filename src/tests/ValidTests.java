@@ -129,40 +129,40 @@ public class ValidTests {
 		TestUtils.runValidTest("Cast_Valid_5");
 	}
 
-//	@Test
-//	public void DoWhile_Valid_1(){
-//		TestUtils.runValidTest("DoWhile_Valid_1");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_2(){
-//		TestUtils.runValidTest("DoWhile_Valid_2");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_3(){
-//		TestUtils.runValidTest("DoWhile_Valid_3");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_4(){
-//		TestUtils.runValidTest("DoWhile_Valid_4");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_5(){
-//		TestUtils.runValidTest("DoWhile_Valid_5");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_6(){
-//		TestUtils.runValidTest("DoWhile_Valid_6");
-//	}
-//
-//	@Test
-//	public void DoWhile_Valid_7(){
-//		TestUtils.runValidTest("DoWhile_Valid_7");
-//	}
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_1(){
+		TestUtils.runValidTest("DoWhile_Valid_1");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_2(){
+		TestUtils.runValidTest("DoWhile_Valid_2");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_3(){
+		TestUtils.runValidTest("DoWhile_Valid_3");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_4(){
+		TestUtils.runValidTest("DoWhile_Valid_4");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_5(){
+		TestUtils.runValidTest("DoWhile_Valid_5");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_6(){
+		TestUtils.runValidTest("DoWhile_Valid_6");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void DoWhile_Valid_7(){
+		TestUtils.runValidTest("DoWhile_Valid_7");
+	}
 
 	@Test
 	public void IfElse_Valid_1(){
@@ -449,245 +449,245 @@ public class ValidTests {
 		TestUtils.runValidTest("VarDecl_Valid_4");
 	}
 
-//	@Test
-//	public void While_Valid_1(){
-//		TestUtils.runValidTest("While_Valid_1");
-//	}
-//
-//	@Test
-//	public void While_Valid_2(){
-//		TestUtils.runValidTest("While_Valid_2");
-//	}
-//
-//	@Test
-//	public void While_Valid_3(){
-//		TestUtils.runValidTest("While_Valid_3");
-//	}
-//
-//	@Test
-//	public void While_Valid_4(){
-//		TestUtils.runValidTest("While_Valid_4");
-//	}
-//
-//	@Test
-//	public void While_Valid_5(){
-//		TestUtils.runValidTest("While_Valid_5");
-//	}
-//
-//	@Test
-//	public void While_Valid_6(){
-//		TestUtils.runValidTest("While_Valid_6");
-//	}
-//
-//	@Test
-//	public void While_Valid_7(){
-//		TestUtils.runValidTest("While_Valid_7");
-//	}
-//
-//	@Test
-//	public void While_Valid_8(){
-//		TestUtils.runValidTest("While_Valid_8");
-//	}
-//
-//	@Test
-//	public void While_Valid_9(){
-//		TestUtils.runValidTest("While_Valid_9");
-//	}
-//
-//	@Test
-//	public void While_Valid_10(){
-//		TestUtils.runValidTest("While_Valid_10");
-//	}
-//
-//	@Test
-//	public void While_Valid_11(){
-//		TestUtils.runValidTest("While_Valid_11");
-//	}
-//
-//	@Test
-//	public void While_Valid_12(){
-//		TestUtils.runValidTest("While_Valid_12");
-//	}
-//
-//	@Test
-//	public void While_Valid_13(){
-//		TestUtils.runValidTest("While_Valid_13");
-//	}
-//
-//	@Test
-//	public void While_Valid_14(){
-//		TestUtils.runValidTest("While_Valid_14");
-//	}
-//
-//	@Test
-//	public void While_Valid_15(){
-//		TestUtils.runValidTest("While_Valid_15");
-//	}
-//
-//	@Test
-//	public void While_Valid_16(){
-//		TestUtils.runValidTest("While_Valid_16");
-//	}
-//
-//	@Test
-//	public void While_Valid_17(){
-//		TestUtils.runValidTest("While_Valid_17");
-//	}
-//
-//	@Test
-//	public void While_Valid_18(){
-//		TestUtils.runValidTest("While_Valid_18");
-//	}
-//
-//	@Test
-//	public void While_Valid_19(){
-//		TestUtils.runValidTest("While_Valid_19");
-//	}
-//
-//	@Test
-//	public void While_Valid_20(){
-//		TestUtils.runValidTest("While_Valid_20");
-//	}
-//
-//	@Test
-//	public void While_Valid_21(){
-//		TestUtils.runValidTest("While_Valid_21");
-//	}
-//
-//	@Test
-//	public void While_Valid_22(){
-//		TestUtils.runValidTest("While_Valid_22");
-//	}
-//
-//	@Test
-//	public void While_Valid_23(){
-//		TestUtils.runValidTest("While_Valid_23");
-//	}
-//
-//	@Test
-//	public void While_Valid_24(){
-//		TestUtils.runValidTest("While_Valid_24");
-//	}
-//
-//	@Test
-//	public void While_Valid_25(){
-//		TestUtils.runValidTest("While_Valid_25");
-//	}
-//
-//	@Test
-//	public void While_Valid_26(){
-//		TestUtils.runValidTest("While_Valid_26");
-//	}
-//
-//	@Test
-//	public void While_Valid_27(){
-//		TestUtils.runValidTest("While_Valid_27");
-//	}
-//
-//	@Test
-//	public void While_Valid_28(){
-//		TestUtils.runValidTest("While_Valid_28");
-//	}
-//
-//	@Test
-//	public void While_Valid_29(){
-//		TestUtils.runValidTest("While_Valid_29");
-//	}
-//
-//	@Test
-//	public void While_Valid_30(){
-//		TestUtils.runValidTest("While_Valid_30");
-//	}
-//
-//	@Test
-//	public void While_Valid_31(){
-//		TestUtils.runValidTest("While_Valid_31");
-//	}
-//
-//	@Test
-//	public void While_Valid_32(){
-//		TestUtils.runValidTest("While_Valid_32");
-//	}
-//
-//	@Test
-//	public void While_Valid_33(){
-//		TestUtils.runValidTest("While_Valid_33");
-//	}
-//
-//	@Test
-//	public void While_Valid_34(){
-//		TestUtils.runValidTest("While_Valid_34");
-//	}
-//
-//	@Test
-//	public void While_Valid_35(){
-//		TestUtils.runValidTest("While_Valid_35");
-//	}
-//
-//	@Test
-//	public void While_Valid_36(){
-//		TestUtils.runValidTest("While_Valid_36");
-//	}
-//
-//	@Test
-//	public void While_Valid_37(){
-//		TestUtils.runValidTest("While_Valid_37");
-//	}
-//
-//	@Test
-//	public void While_Valid_38(){
-//		TestUtils.runValidTest("While_Valid_38");
-//	}
-//
-//	@Test
-//	public void While_Valid_39(){
-//		TestUtils.runValidTest("While_Valid_39");
-//	}
-//
-//	@Test
-//	public void While_Valid_40(){
-//		TestUtils.runValidTest("While_Valid_40");
-//	}
-//
-//	@Test
-//	public void While_Valid_41(){
-//		TestUtils.runValidTest("While_Valid_41");
-//	}
-//
-//	@Test
-//	public void While_Valid_42(){
-//		TestUtils.runValidTest("While_Valid_42");
-//	}
-//
-//	@Test
-//	public void While_Valid_43(){
-//		TestUtils.runValidTest("While_Valid_43");
-//	}
-//
-//	@Test
-//	public void While_Valid_44(){
-//		TestUtils.runValidTest("While_Valid_44");
-//	}
-//
-//	@Test
-//	public void While_Valid_45(){
-//		TestUtils.runValidTest("While_Valid_45");
-//	}
-//
-//	@Test
-//	public void While_Valid_46(){
-//		TestUtils.runValidTest("While_Valid_46");
-//	}
-//
-//	@Test
-//	public void While_Valid_47(){
-//		TestUtils.runValidTest("While_Valid_47");
-//	}
-//
-//	@Test
-//	public void While_Valid_48(){
-//		TestUtils.runValidTest("While_Valid_48");
-//	}
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_1(){
+		TestUtils.runValidTest("While_Valid_1");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_2(){
+		TestUtils.runValidTest("While_Valid_2");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_3(){
+		TestUtils.runValidTest("While_Valid_3");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_4(){
+		TestUtils.runValidTest("While_Valid_4");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_5(){
+		TestUtils.runValidTest("While_Valid_5");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_6(){
+		TestUtils.runValidTest("While_Valid_6");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_7(){
+		TestUtils.runValidTest("While_Valid_7");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_8(){
+		TestUtils.runValidTest("While_Valid_8");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_9(){
+		TestUtils.runValidTest("While_Valid_9");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_10(){
+		TestUtils.runValidTest("While_Valid_10");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_11(){
+		TestUtils.runValidTest("While_Valid_11");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_12(){
+		TestUtils.runValidTest("While_Valid_12");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_13(){
+		TestUtils.runValidTest("While_Valid_13");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_14(){
+		TestUtils.runValidTest("While_Valid_14");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_15(){
+		TestUtils.runValidTest("While_Valid_15");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_16(){
+		TestUtils.runValidTest("While_Valid_16");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_17(){
+		TestUtils.runValidTest("While_Valid_17");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_18(){
+		TestUtils.runValidTest("While_Valid_18");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_19(){
+		TestUtils.runValidTest("While_Valid_19");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_20(){
+		TestUtils.runValidTest("While_Valid_20");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_21(){
+		TestUtils.runValidTest("While_Valid_21");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_22(){
+		TestUtils.runValidTest("While_Valid_22");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_23(){
+		TestUtils.runValidTest("While_Valid_23");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_24(){
+		TestUtils.runValidTest("While_Valid_24");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_25(){
+		TestUtils.runValidTest("While_Valid_25");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_26(){
+		TestUtils.runValidTest("While_Valid_26");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_27(){
+		TestUtils.runValidTest("While_Valid_27");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_28(){
+		TestUtils.runValidTest("While_Valid_28");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_29(){
+		TestUtils.runValidTest("While_Valid_29");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_30(){
+		TestUtils.runValidTest("While_Valid_30");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_31(){
+		TestUtils.runValidTest("While_Valid_31");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_32(){
+		TestUtils.runValidTest("While_Valid_32");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_33(){
+		TestUtils.runValidTest("While_Valid_33");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_34(){
+		TestUtils.runValidTest("While_Valid_34");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_35(){
+		TestUtils.runValidTest("While_Valid_35");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_36(){
+		TestUtils.runValidTest("While_Valid_36");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_37(){
+		TestUtils.runValidTest("While_Valid_37");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_38(){
+		TestUtils.runValidTest("While_Valid_38");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_39(){
+		TestUtils.runValidTest("While_Valid_39");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_40(){
+		TestUtils.runValidTest("While_Valid_40");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_41(){
+		TestUtils.runValidTest("While_Valid_41");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_42(){
+		TestUtils.runValidTest("While_Valid_42");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_43(){
+		TestUtils.runValidTest("While_Valid_43");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_44(){
+		TestUtils.runValidTest("While_Valid_44");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_45(){
+		TestUtils.runValidTest("While_Valid_45");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_46(){
+		TestUtils.runValidTest("While_Valid_46");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_47(){
+		TestUtils.runValidTest("While_Valid_47");
+	}
+
+	@Test(timeout=TestUtils.TIMEOUT)
+	public void While_Valid_48(){
+		TestUtils.runValidTest("While_Valid_48");
+	}
 
 
 }

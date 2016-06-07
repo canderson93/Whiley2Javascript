@@ -13,6 +13,19 @@ import wyil.lang.Codes;
 public class ValueNode extends AbstractNode {
 	private String target;
 	private List<String> value;
+	
+	protected ValueNode (AbstractNode parent, String target, String... values){
+		super(parent);
+		
+		this.target = target;
+		this.value = new ArrayList<String>();
+		
+		for (String v : values){
+			this.value.add(v);
+		}
+		
+		parent.addVariable(this.target);
+	}
 
 	public ValueNode(AbstractNode parent, Codes.Const code){
 		super(parent);

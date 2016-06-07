@@ -15,6 +15,7 @@ import wyjc.util.WyjcBuildTask;
 import main.Whiley2Javascript;
 
 public final class TestUtils {
+	public static final int TIMEOUT = 1000; //Test timeout
 
 	/**
 	 * The location of the whiley test cases

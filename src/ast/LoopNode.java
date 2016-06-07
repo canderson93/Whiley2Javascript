@@ -9,17 +9,22 @@ import wyil.lang.WyilFile.FunctionOrMethod;
 
 public class LoopNode extends AbstractNode {
 	List<AbstractNode> children;
+	String label; //label that is used for this node's loop
 
 	protected LoopNode(AbstractNode parent, Codes.Loop code) {
 		super(parent);
 		
 		children = new ArrayList<AbstractNode>();
-
+		label = getLoopLabel();
+		
+		children.add(new LabelNode(parent, this.label)); //Mark a label for the loop
+		children.add(new ValueNode(parent, LABEL_VAR, "'"+this.label+"'")); //Set the switch value to the current loop
+		
 		for (Code c : code.bytecodes()){
 			children.addAll(createNodeFromCode(c, this));
 		}
 		
-		throw new RuntimeException("Loops are temporarily disabled");
+		//throw new RuntimeException("Loops are temporarily disabled");
 	}
 
 	protected LoopNode(AbstractNode parent, FunctionOrMethod function){

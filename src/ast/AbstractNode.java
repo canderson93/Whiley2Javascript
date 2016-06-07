@@ -5,6 +5,7 @@ import java.util.List;
 
 import wyil.lang.Code;
 import wyil.lang.Codes;
+import wyil.lang.Type;
 
 public abstract class AbstractNode {
 	public static final String VAR_PREFIX = "$";
@@ -56,6 +57,14 @@ public abstract class AbstractNode {
 			parent.addVariable(var);
 		}
 	}
+	
+	protected String getLoopLabel(){
+		if(parent != null) {
+			return parent.getLoopLabel();
+		}
+		
+		throw new RuntimeException("Missing parent");
+	}
 
 	/**
 	 * Creates and returns a list of nodes that represent the Code object
@@ -68,11 +77,11 @@ public abstract class AbstractNode {
 
 		//Invariant (has to be above Assert/Assume)
 		if (code instanceof Codes.Invariant){
-			Codes.Invariant c = (Codes.Invariant)code;
-			list.addAll(createInvariant(parent, c));
+//			Codes.Invariant c = (Codes.Invariant)code;
+//			list.addAll(createInvariant(parent, c));
 		}
 		// Assert Or Assume
-		else if (code instanceof Codes.AssertOrAssume) {
+		if (code instanceof Codes.AssertOrAssume) {
 			Codes.AssertOrAssume c = (Codes.AssertOrAssume) code;
 			list.addAll(createAssertBlock(c, parent));
 		}
