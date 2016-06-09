@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wyil.lang.Codes;
+import wyil.lang.Type;
 
 /**
  * A node to represent a simple value assignment.
@@ -13,6 +14,8 @@ import wyil.lang.Codes;
 public class ValueNode extends AbstractNode {
 	private String target;
 	private List<String> value;
+	
+	private boolean isArray = false;
 	
 	protected ValueNode (AbstractNode parent, String target, String... values){
 		super(parent);
@@ -42,10 +45,17 @@ public class ValueNode extends AbstractNode {
 		super(parent);
 
 		this.value = new ArrayList<String>();
+		
+		String val = VAR_PREFIX+code.operand(0);
+		
+		//Special handling for Integers: Wrap in a Math.floor to simulate truncation
+		if (code.type(0) instanceof Type.Int){
+			val = "Math.floor("+val+")";
+		}
 
 		//As far as I'm aware, these only ever have one value
 		this.target = VAR_PREFIX+code.target(0);
-		this.value.add(VAR_PREFIX+code.operand(0));
+		this.value.add(val);
 
 		parent.addVariable(this.target);
 	}
@@ -60,16 +70,30 @@ public class ValueNode extends AbstractNode {
 		for (int op : code.operands()){
 			this.value.add(VAR_PREFIX+op);
 		}
-
+		
+		isArray = true;
 		parent.addVariable(this.target);
 	}
 
 	public ValueNode(AbstractNode parent, Codes.ArrayGenerator code){
 		super(parent);
 
-		this.value = new ArrayList<String>(); //Empty values array
+		this.value = new ArrayList<String>();
 		this.target = VAR_PREFIX+code.target(0);
-
+		
+		//If this way passed in some operators, then we need to initalize the array
+		//with a length
+		if (code.operands().length != 0){
+			String val = VAR_PREFIX+code.operand(0);
+			String len = VAR_PREFIX+code.operand(1);
+			
+			//Inject a function to fill the array with the desired values
+			value.add(String.format("Array.apply(null, Array(%s)).map(function(){ return %s; })", len, val));
+			
+		} else {
+			isArray = true;
+		}
+		
 		parent.addVariable(this.target);
 	}
 	
@@ -98,26 +122,26 @@ public class ValueNode extends AbstractNode {
 	 * @return
 	 */
 	private String translateValues(){
-		//if there's only one value, return the value
-		if (value.size() == 1){
-			return value.get(0);
-		}
+		if (isArray){
+			//wrap the values in array notation
+			String val = "[";
 
-		//wrap the values in array notation
-		String val = "[";
+			//Insert values
+			for (int i = 0; i < value.size(); i++){
+				val += value.get(i);
 
-		//Insert values
-		for (int i = 0; i < value.size(); i++){
-			val += value.get(i);
-
-			//Add a comma if this is not the last value
-			if (i != value.size() -1 ){
-				val += ",";
+				//Add a comma if this is not the last value
+				if (i != value.size() -1 ){
+					val += ",";
+				}
 			}
-		}
 
-		val += "]";
-		return val;
+			val += "]";
+			return val;
+		}
+		
+		//if this isn't an array, just return the value (should only be one)
+		return value.get(0);
 	}
 
 }

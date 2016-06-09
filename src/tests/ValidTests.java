@@ -465,30 +465,15 @@ public class ValidTests {
 	}
 
 	@Test(timeout=TestUtils.TIMEOUT)
-	public void While_Valid_4(){
-		TestUtils.runValidTest("While_Valid_4");
-	}
-
-	@Test(timeout=TestUtils.TIMEOUT)
 	public void While_Valid_5(){
 		TestUtils.runValidTest("While_Valid_5");
-	}
-
-	@Test(timeout=TestUtils.TIMEOUT)
-	public void While_Valid_6(){
-		TestUtils.runValidTest("While_Valid_6");
 	}
 
 	@Test(timeout=TestUtils.TIMEOUT)
 	public void While_Valid_7(){
 		TestUtils.runValidTest("While_Valid_7");
 	}
-
-	@Test(timeout=TestUtils.TIMEOUT)
-	public void While_Valid_8(){
-		TestUtils.runValidTest("While_Valid_8");
-	}
-
+	
 	@Test(timeout=TestUtils.TIMEOUT)
 	public void While_Valid_9(){
 		TestUtils.runValidTest("While_Valid_9");
@@ -507,11 +492,6 @@ public class ValidTests {
 	@Test(timeout=TestUtils.TIMEOUT)
 	public void While_Valid_12(){
 		TestUtils.runValidTest("While_Valid_12");
-	}
-
-	@Test(timeout=TestUtils.TIMEOUT)
-	public void While_Valid_13(){
-		TestUtils.runValidTest("While_Valid_13");
 	}
 
 	@Test(timeout=TestUtils.TIMEOUT)

@@ -17,12 +17,15 @@ public class LoopNode extends AbstractNode {
 		children = new ArrayList<AbstractNode>();
 		label = getLoopLabel();
 		
+		//children.add(new ValueNode(parent, LABEL_VAR, "'"+this.label+"'")); //Set the switch value to the current loop
 		children.add(new LabelNode(parent, this.label)); //Mark a label for the loop
-		children.add(new ValueNode(parent, LABEL_VAR, "'"+this.label+"'")); //Set the switch value to the current loop
 		
 		for (Code c : code.bytecodes()){
 			children.addAll(createNodeFromCode(c, this));
 		}
+		
+		//Make the final node of the loop resetting the label to the loop, in case it has changed
+		children.add(new ValueNode(parent, LABEL_VAR, "'"+this.label+"'"));
 		
 		//throw new RuntimeException("Loops are temporarily disabled");
 	}

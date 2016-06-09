@@ -5,7 +5,6 @@ import java.util.List;
 
 import wyil.lang.Code;
 import wyil.lang.Codes;
-import wyil.lang.Type;
 
 public abstract class AbstractNode {
 	public static final String VAR_PREFIX = "$";
@@ -75,13 +74,13 @@ public abstract class AbstractNode {
 	public static List<AbstractNode> createNodeFromCode(Code code, AbstractNode parent) {
 		List<AbstractNode> list = new ArrayList<AbstractNode>();
 
-		//Invariant (has to be above Assert/Assume)
+		//Invariant
 		if (code instanceof Codes.Invariant){
-//			Codes.Invariant c = (Codes.Invariant)code;
-//			list.addAll(createInvariant(parent, c));
+			//This is here to stop invariants from being parsed, as they are
+			//a subtype of Codes.AssertOrAssume
 		}
 		// Assert Or Assume
-		if (code instanceof Codes.AssertOrAssume) {
+		else if (code instanceof Codes.AssertOrAssume) {
 			Codes.AssertOrAssume c = (Codes.AssertOrAssume) code;
 			list.addAll(createAssertBlock(c, parent));
 		}
@@ -190,35 +189,5 @@ public abstract class AbstractNode {
 		}
 
 		return list;
-	}
-
-	/**
-	 * Create an invariant block
-	 * @param parent
-	 * @param code
-	 * @return
-	 */
-	private static List<AbstractNode> createInvariant(AbstractNode parent, Codes.Invariant code){
-		//We actually want to ignore invariants, but they tell us what label the loop is going to
-		//be present in, so what we do is search for the last label node (the others will be failures)
-		//and just insert that AND assign the current variable to a label
-
-		List<AbstractNode> nodes = new ArrayList<AbstractNode>();
-		Codes.Label label = null;
-		for (int i = code.bytecodes().size()-1; i >= 0; i--){
-			Code c = code.bytecodes().get(i);
-			if (c instanceof Codes.Label){
-				label = (Codes.Label)c;
-				break;
-			}
-		}
-
-		if(label != null){
-			//Create the nodes
-			nodes.add(new GoToNode(parent, label.label));
-			nodes.add(new LabelNode(parent, label.label));
-		}
-
-		return nodes;
 	}
 }
