@@ -1,10 +1,8 @@
 package ast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import wyil.lang.Code;
@@ -25,12 +23,6 @@ public class FunctionNode extends AbstractNode {
 	private Set<String> variables;
 
 	/**
-	 * List of goto labels used throughout the function, and the node they go to.
-	 * This is used for populating the switch statement
-	 */
-	private Map<String, LabelNode> labels;
-
-	/**
 	 * Children nodes of this collection
 	 */
 	private List<AbstractNode> children;
@@ -42,18 +34,16 @@ public class FunctionNode extends AbstractNode {
 
 	protected FunctionNode(AbstractNode parent, FunctionOrMethod function) {
 		super(parent);
+		
+		loopCounter = 0; 
 
-		labels = new HashMap<String, LabelNode>();
 		children = new ArrayList<AbstractNode>();
 		variables = new HashSet<String>();
-		
-		loopCounter = 0;
-
 		params = loadParams(function.type());
 
 		this.name = function.name();
 
-		//Add label to variables, and set it to a default
+		//Add label to variables
 		variables.add(LABEL_VAR);
 
 		//Function is going to have various subnodes which now need to be parsed, and strung together
@@ -104,11 +94,6 @@ public class FunctionNode extends AbstractNode {
 	}
 
 	@Override
-	protected void addLabel(String label, LabelNode node){
-		labels.put(label, node);
-	}
-
-	@Override
 	protected void addVariable(String var){
 		variables.add(var);
 	}
@@ -119,8 +104,14 @@ public class FunctionNode extends AbstractNode {
 		
 		return val;
 	}
-
-	private List<String> loadParams(Type.FunctionOrMethod function){
+	
+	/**
+	 * Returns the parameters available for a function
+	 * 
+	 * @param function
+	 * @return
+	 */
+	private static List<String> loadParams(Type.FunctionOrMethod function){
 		int numParams = function.params().size();
 		List<String >params = new ArrayList<String>();
 

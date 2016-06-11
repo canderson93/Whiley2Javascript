@@ -9,8 +9,8 @@ import wyil.lang.Type;
  *
  */
 public class IfNode extends AbstractNode {
-	private String condition;
-	private String target;
+	private String condition; //the condition to evaluate
+	private String target; //goto label to go to if the condition is true
 	
 	public IfNode(AbstractNode parent, Codes.If code) {
 		super(parent);

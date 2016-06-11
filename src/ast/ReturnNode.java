@@ -2,8 +2,13 @@ package ast;
 
 import wyil.lang.Codes;
 
+/**
+ * Return statement node
+ * @author Carl
+ *
+ */
 public class ReturnNode extends AbstractNode {
-	String value;
+	String value; //Value to return
 
 	public ReturnNode(AbstractNode parent, Codes.Return code) {
 		super(parent);
@@ -18,7 +23,7 @@ public class ReturnNode extends AbstractNode {
 
 	@Override
 	public String translate() {
-		if (value == null){
+		if (value == null){ //If there's no value, just return
 			return "return;\n";
 		}
 

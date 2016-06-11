@@ -2,6 +2,12 @@ package ast;
 
 import wyil.lang.Codes;
 
+/**
+ * Node to update one value with another
+ * This can either be a variable, or an array element
+ * @author Carl
+ *
+ */
 public class UpdateNode extends AbstractNode {
 	String target = null;
 	String index = null;

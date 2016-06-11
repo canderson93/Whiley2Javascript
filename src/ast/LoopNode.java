@@ -7,8 +7,13 @@ import wyil.lang.Code;
 import wyil.lang.Codes;
 import wyil.lang.WyilFile.FunctionOrMethod;
 
+/**
+ * Node that creates a loop
+ * @author Carl
+ *
+ */
 public class LoopNode extends AbstractNode {
-	List<AbstractNode> children;
+	List<AbstractNode> children; //objects inside the loop
 	String label; //label that is used for this node's loop
 
 	protected LoopNode(AbstractNode parent, Codes.Loop code) {
@@ -26,8 +31,6 @@ public class LoopNode extends AbstractNode {
 		
 		//Make the final node of the loop resetting the label to the loop, in case it has changed
 		children.add(new ValueNode(parent, LABEL_VAR, "'"+this.label+"'"));
-		
-		//throw new RuntimeException("Loops are temporarily disabled");
 	}
 
 	protected LoopNode(AbstractNode parent, FunctionOrMethod function){
@@ -42,7 +45,6 @@ public class LoopNode extends AbstractNode {
 
 	@Override
 	public String translate() {
-		//Going to try use the switch statement to simulate a loop
 		String val = "";
 
 		//Insert children (somewhere in here is a break statement)

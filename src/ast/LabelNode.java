@@ -6,20 +6,18 @@ package ast;
  *
  */
 public class LabelNode extends AbstractNode {
-	public final String label;
+	public final String label; //label declaration
 	
 	public LabelNode(AbstractNode parent, String label) {
 		super(parent);
 		
 		this.label = label;
-		parent.addLabel(label, this);
 	}
 
 	@Override
 	//End the current parsing line
 	public String translate() {
 		String val = String.format("case '%s':\n", label);
-		//TODO: May need to place a break statement in here
 		return val;
 	}
 

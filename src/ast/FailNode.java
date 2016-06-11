@@ -1,5 +1,10 @@
 package ast;
 
+/**
+ * Node for fail statements with assertions
+ * @author Carl
+ *
+ */
 public class FailNode extends AbstractNode {
 
 	protected FailNode(AbstractNode parent) {

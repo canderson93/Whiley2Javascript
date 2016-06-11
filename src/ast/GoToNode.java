@@ -8,7 +8,7 @@ import wyil.lang.Codes;
  *
  */
 public class GoToNode extends AbstractNode {
-	String target;
+	String target; //goto label to go to
 
 	public GoToNode(AbstractNode parent, String target){
 		super(parent);

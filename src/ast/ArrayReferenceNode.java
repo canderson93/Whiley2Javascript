@@ -5,6 +5,11 @@ import java.util.List;
 
 import wyil.lang.Codes;
 
+/**
+ * Node for referencing an element of an array
+ * @author Carl
+ *
+ */
 public class ArrayReferenceNode extends AbstractNode {
 	String target;
 	String array;

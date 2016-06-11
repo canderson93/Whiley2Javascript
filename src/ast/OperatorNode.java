@@ -2,6 +2,11 @@ package ast;
 
 import wyil.lang.Codes;
 
+/**
+ * Node for operations, such as addition and subtraction
+ * @author Carl
+ *
+ */
 public class OperatorNode extends AbstractNode {	
 	private String target;
 	private String operator;

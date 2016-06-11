@@ -6,20 +6,22 @@ import java.util.List;
 import wyil.lang.Code;
 import wyil.lang.Codes;
 
+/**
+ * A node used in translation of WyIL bytecode to javascript.
+ * 
+ * This generates a basic syntax tree, which then generates a Javascript string.
+ * @author Carl
+ *
+ */
 public abstract class AbstractNode {
 	public static final String VAR_PREFIX = "$";
 	public static final String LABEL_VAR = "$label";
 	public static final String DEFAULT_LABEL = "default";
 
 	protected AbstractNode parent;
-	protected AbstractNode next;
 
 	protected AbstractNode(AbstractNode parent) {
 		this.parent = parent;
-
-		if (parent != null) {
-			parent.next = this;
-		}
 	}
 
 	/**
@@ -28,22 +30,6 @@ public abstract class AbstractNode {
 	 * @return
 	 */
 	public abstract String translate();
-
-	/**
-	 * Adds a label to the current scope
-	 *
-	 * @param label
-	 *            label identifier
-	 * @param next
-	 *            node which begins after the label
-	 */
-	protected void addLabel(String label, LabelNode node) {
-		// Implement here, as most cases just want to propagate
-		// the value up the chain until it reaches a node who cares
-		if (parent != null) {
-			parent.addLabel(label, node);
-		}
-	};
 
 	/**
 	 * Registers a variable for the current scope
@@ -57,6 +43,10 @@ public abstract class AbstractNode {
 		}
 	}
 	
+	/**
+	 * Generates a label for the start of a loop
+	 * @return
+	 */
 	protected String getLoopLabel(){
 		if(parent != null) {
 			return parent.getLoopLabel();
@@ -174,6 +164,13 @@ public abstract class AbstractNode {
 		return list;
 	}
 
+	/**
+	 * Handle an assert/assume block by extracting the nodes inside it
+	 * 
+	 * @param code wyil assert or assume to extract
+	 * @param parent node that will be the parent of all nodes
+	 * @return List of nodes that represent the assert or assume
+	 */
 	private static List<AbstractNode> createAssertBlock(Codes.AssertOrAssume code, AbstractNode parent) {
 		if (!(code instanceof Codes.AssertOrAssume)) {
 			throw new IllegalArgumentException();

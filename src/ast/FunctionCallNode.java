@@ -13,9 +13,9 @@ import wyil.lang.Codes;
  *
  */
 public class FunctionCallNode extends AbstractNode {
-	private List<String> params;
-	private String function;
-	private String target;
+	private List<String> params; //params to call the function with
+	private String function; //func name
+	private String target; //var to write return value to
 
 	protected FunctionCallNode(AbstractNode parent) {
 		super(parent);
@@ -29,7 +29,6 @@ public class FunctionCallNode extends AbstractNode {
 		this.function = function;
 		this.params = params;
 
-		//Check for a null parameter collection
 		if (params == null){
 			this.params = new LinkedList<String>();
 		}
@@ -72,7 +71,7 @@ public class FunctionCallNode extends AbstractNode {
 		for (int i = 0; i < params.size(); i++){
 			val += params.get(i);
 
-			//Comma between params
+			//Comma between params, for reasons
 			if (i != params.size()-1){
 				val += ",";
 			}

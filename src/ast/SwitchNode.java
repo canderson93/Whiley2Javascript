@@ -7,9 +7,15 @@ import wycc.util.Pair;
 import wyil.lang.Codes;
 import wyil.lang.Constant;
 
+/**
+ * Node for a switch statement.
+ * 
+ * @author Carl
+ *
+ */
 public class SwitchNode extends AbstractNode {
-	Map<String, GoToNode> branches;
-	String operand;
+	Map<String, GoToNode> branches; //cases in the switch
+	String operand; //variable we are switching on
 	String def; //default case
 	
 	
